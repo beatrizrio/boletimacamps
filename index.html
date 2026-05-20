@@ -15,7 +15,7 @@
   --green: #2D7A3A; --green-light: #E6F5EA;
   --teal: #1A8A7A; --teal-light: #E0F5F2;
 }
-html, body { font-family: "Nunito", sans-serif; background: var(--cream); color: var(--text); }
+html, body { font-family: "Nunito", sans-serif; background: var(--cream); color: var(--text); scroll-behavior: smooth; }
 
 /* HEADER */
 .header { background: var(--orange-dark); position: relative; overflow: hidden; }
@@ -79,7 +79,7 @@ html, body { font-family: "Nunito", sans-serif; background: var(--cream); color:
 .progress-wrap { margin-bottom: 10px; }
 .progress-label { display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; color: var(--muted); margin-bottom: 5px; }
 .progress-bar { height: 9px; background: rgba(212,96,26,0.1); border-radius: 10px; overflow: hidden; }
-.progress-fill { height: 100%; border-radius: 10px; }
+.progress-fill { height: 100%; border-radius: 10px; transition: width 0.3s ease; }
 .pf-orange { background: var(--orange); }
 .pf-teal { background: var(--teal); }
 .pf-gold { background: var(--gold); }
@@ -117,9 +117,6 @@ html, body { font-family: "Nunito", sans-serif; background: var(--cream); color:
 .prayer-text { font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.9); position: relative; z-index: 1; }
 .prayer-highlight { font-weight: 800; color: var(--gold); }
 
-/* ARTE */
-.arte-img { width: 100%; border-radius: 20px; display: block; margin-bottom: 12px; }
-
 /* DATE */
 .date-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--green-light); color: var(--green); font-size: 13px; font-weight: 800; padding: 8px 14px; border-radius: 12px; margin-top: 4px; }
 
@@ -143,11 +140,58 @@ html, body { font-family: "Nunito", sans-serif; background: var(--cream); color:
 
 /* WHATSAPP */
 .wa-float { position: fixed; bottom: 24px; right: 20px; background: #25D366; color: white; border-radius: 50%; width: 54px; height: 54px; display: flex; align-items: center; justify-content: center; font-size: 28px; text-decoration: none; box-shadow: 0 4px 20px rgba(37,211,102,0.45); z-index: 999; }
+
+/* ==========================================================
+   NOVOS ESTILOS DO CALENDÁRIO 
+   ========================================================== */
+.tabs-container { display: flex; gap: 8px; margin-bottom: 16px; }
+.tab-btn { flex: 1; padding: 14px 10px; text-align: center; font-family: "Nunito", sans-serif; font-weight: 800; font-size: 14px; border-radius: 14px; cursor: pointer; transition: 0.2s; border: 2px solid transparent; }
+.tab-btn.active { background: var(--orange-dark); color: var(--white); }
+.tab-btn:not(.active) { background: var(--white); color: var(--muted); border: 1.5px solid rgba(212,96,26,0.1); }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; animation: fadeIn 0.3s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
+.month-header { font-family: "Bebas Neue", sans-serif; font-size: 26px; color: var(--orange-dark); margin: 24px 0 12px; display: flex; align-items: center; gap: 12px; letter-spacing: 1px; }
+.month-header::after { content: ""; flex: 1; height: 2px; background: rgba(212,96,26,0.1); }
+
+.event-row { background: var(--white); border-radius: 16px; padding: 12px 14px; margin-bottom: 8px; border: 1.5px solid rgba(212,96,26,0.08); display: flex; align-items: center; gap: 12px; }
+.event-date-box { background: var(--gold-light); color: var(--orange-dark); font-family: "Bebas Neue", sans-serif; font-size: 22px; text-align: center; padding: 8px; border-radius: 12px; min-width: 65px; line-height: 1; }
+.event-info { flex: 1; }
+.event-name { font-weight: 800; font-size: 14px; color: var(--text); margin-bottom: 2px; }
+.event-note { font-size: 12px; color: var(--muted); font-weight: 600; line-height: 1.3; }
+
+.event-pill { font-size: 10px; font-weight: 800; text-transform: uppercase; padding: 5px 8px; border-radius: 8px; letter-spacing: 0.5px; white-space: nowrap; }
+.pill-comissao { background: rgba(74,41,128,0.1); color: #4A2980; }
+.pill-evento   { background: rgba(212,96,26,0.1); color: var(--orange-dark); }
+.pill-divulg   { background: var(--gold-light); color: var(--orange-dark); }
+.pill-geral    { background: var(--green-light); color: var(--green); }
+.pill-acamps   { background: var(--gold); color: var(--orange-dark); }
+
+/* Highlight Destaque Julho */
+.highlight-july { background: var(--orange-dark); border-radius: 16px; padding: 20px; display: flex; align-items: center; gap: 16px; margin-bottom: 12px; color: var(--white); border: 2px solid var(--gold); }
+.hj-icon { font-size: 32px; }
+.hj-text strong { display: block; font-family: "Bebas Neue", sans-serif; font-size: 24px; color: var(--gold); letter-spacing: 1px; margin-bottom: 4px; font-weight: normal; }
+.hj-text span { font-size: 13px; color: rgba(255,255,255,0.8); font-weight: 600; }
+
+/* Grid Evangelização */
+.evang-header { display: flex; align-items: center; gap: 10px; margin: 20px 0 12px; }
+.evang-title { font-family: "Bebas Neue", sans-serif; font-size: 22px; color: var(--orange-dark); letter-spacing: 1px; }
+.evang-badge { font-size: 11px; font-weight: 800; background: var(--gold); color: var(--orange-dark); padding: 4px 10px; border-radius: 20px; }
+.evang-list { display: flex; flex-direction: column; gap: 8px; }
+.evang-item { background: var(--white); border-radius: 14px; padding: 14px; border: 1.5px solid rgba(212,96,26,0.08); border-left: 4px solid var(--gold); }
+.evang-region { font-size: 11px; font-weight: 800; color: var(--orange); text-transform: uppercase; margin-bottom: 2px; }
+.evang-local { font-weight: 700; font-size: 14px; color: var(--text); }
+.evang-obs { font-size: 12px; color: var(--muted); margin-top: 4px; font-style: italic; }
+
+.legend-box { background: var(--white); border-radius: 14px; padding: 12px; border: 1.5px solid rgba(212,96,26,0.08); display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 16px; }
+.legend-item { display: flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; }
+.legend-dot { width: 10px; height: 10px; border-radius: 4px; }
+
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
 <div class="header">
   <div class="header-bg"></div>
   <div class="header-top">
@@ -163,7 +207,6 @@ html, body { font-family: "Nunito", sans-serif; background: var(--cream); color:
   </svg>
 </div>
 
-<!-- HERO -->
 <div class="hero-banner">
   <div class="hero-text">
     <div class="hey">Acampamento de Jovens</div>
@@ -173,7 +216,6 @@ html, body { font-family: "Nunito", sans-serif; background: var(--cream); color:
   <div class="hero-emoji">🔥</div>
 </div>
 
-<!-- ======= DADOS ======= -->
 <div class="section-block">
   <div class="section-label">
     <div class="section-label-line"></div>
@@ -193,7 +235,7 @@ html, body { font-family: "Nunito", sans-serif; background: var(--cream); color:
       <div class="stat-card s-orange">
         <div class="stat-number">8</div>
         <div class="stat-label">Participantes</div>
-        <div class="stat-sub">inscritos</div>
+        <div class="stat-sub">Meta: 150</div>
       </div>
       <div class="stat-card s-teal">
         <div class="stat-number">8</div>
@@ -202,8 +244,8 @@ html, body { font-family: "Nunito", sans-serif; background: var(--cream); color:
       </div>
     </div>
     <div class="progress-wrap">
-      <div class="progress-label"><span>Participantes</span><span>8 inscritos</span></div>
-      <div class="progress-bar"><div class="progress-fill pf-orange" style="width:16%"></div></div>
+      <div class="progress-label"><span>Participantes</span><span>8 / 150 inscritos</span></div>
+      <div class="progress-bar"><div class="progress-fill pf-orange" style="width:5.3%"></div></div>
     </div>
     <div class="progress-wrap">
       <div class="progress-label"><span>Servos</span><span>8 inscritos</span></div>
@@ -239,7 +281,6 @@ html, body { font-family: "Nunito", sans-serif; background: var(--cream); color:
   <a href="https://www.instagram.com/reel/DYP94YPoBgc/?igsh=Z3BhZXl4aWVjOHk0" target="_blank" class="btn btn-outline">📽️ Compartilhar vídeo no Story</a>
 </div>
 
-<!-- ======= INSCRIÇÕES ======= -->
 <div class="section-block">
   <div class="section-label">
     <div class="section-label-line"></div>
@@ -275,7 +316,29 @@ html, body { font-family: "Nunito", sans-serif; background: var(--cream); color:
   </div>
 </div>
 
-<!-- ======= INTERCESSÃO ======= -->
+<div class="section-block">
+  <div class="section-label">
+    <div class="section-label-line"></div>
+    <div class="section-label-text">❤️ APADRINHAMENTO</div>
+    <div class="section-label-line"></div>
+  </div>
+
+  <div class="card card-accent" style="border-left-color: var(--gold);">
+    <div class="card-title" style="color: var(--orange-dark);">🔥 APADRINHE UM JOVEM</div>
+    <div class="card-body">
+      <p>Seja canal da Providência Divina na vida de jovens que desejam participar do ACAMPS! ⛺❤️</p>
+      <p>Com a sua ajuda, mais jovens poderão viver uma experiência profunda com Deus.</p>
+      
+      <div style="background: var(--gold-light); padding: 16px; border-radius: 12px; margin-top: 16px; text-align: center;">
+        <strong style="color: var(--orange-dark); font-size: 14px;">💛 Doe qualquer valor pelo PIX:</strong><br>
+        <span style="font-size: 15px; font-weight: 800; color: var(--orange-dark); user-select: all; display: inline-block; margin-top: 4px;">juventudenatal03@comshalom.org</span>
+      </div>
+
+      <a href="https://wa.me/5584999966466" target="_blank" class="btn btn-green" style="margin-top:16px;">📲 Informações: (84) 99996-6466</a>
+    </div>
+  </div>
+</div>
+
 <div class="section-block">
   <div class="section-label">
     <div class="section-label-line"></div>
@@ -308,7 +371,6 @@ html, body { font-family: "Nunito", sans-serif; background: var(--cream); color:
   </div>
 </div>
 
-<!-- ======= GINCANA ======= -->
 <div class="section-block">
   <div class="section-label">
     <div class="section-label-line"></div>
@@ -340,9 +402,12 @@ html, body { font-family: "Nunito", sans-serif; background: var(--cream); color:
     <div style="font-size: 50px;flex-shrink:0;">🏆</div>
     <div><div class="prize-text">Premiação · Reciclagem Shalom</div><div class="prize-sub">Procure o edital no grupo da unidade</div></div>
   </div>
+  
+  <div style="height:12px;"></div>
+  
+  <a href="GINCANA ACAMPS CAL 2026.2.pdf" target="_blank" class="btn btn-outline">📄 Ver Edital da Gincana</a>
 </div>
 
-<!-- ======= LIGA ======= -->
 <div class="section-block">
   <div class="section-label">
     <div class="section-label-line"></div>
@@ -379,7 +444,353 @@ html, body { font-family: "Nunito", sans-serif; background: var(--cream); color:
   </div>
 </div>
 
-<!-- FOOTER -->
+<div class="section-block" id="secao-calendario">
+  <div class="section-label">
+    <div class="section-label-line"></div>
+    <div class="section-label-text">📅 CALENDÁRIO</div>
+    <div class="section-label-line"></div>
+  </div>
+
+  <div class="tabs-container">
+    <div class="tab-btn active" onclick="switchTab('geral')" id="tab-geral">Calendário Geral</div>
+    <div class="tab-btn" onclick="switchTab('evang')" id="tab-evang">Evangelização</div>
+  </div>
+
+  <div class="tab-panel active" id="panel-geral">
+    
+    <div class="legend-box">
+      <div class="legend-item"><div class="legend-dot" style="background:#2D7A3A"></div>Geral</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#4A2980"></div>Comissão</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#FDEAB8"></div>Divulgação</div>
+      <div class="legend-item"><div class="legend-dot" style="background:rgba(212,96,26,0.2)"></div>Evento</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#F5B733"></div>Acamps</div>
+    </div>
+
+    <div class="month-header">Março</div>
+    <div class="event-row">
+      <div class="event-date-box">12 e 26</div>
+      <div class="event-info">
+        <div class="event-name">Reunião da Comissão</div>
+      </div>
+      <div class="event-pill pill-comissao">Comissão</div>
+    </div>
+    <div class="event-row">
+      <div class="event-date-box">23</div>
+      <div class="event-info">
+        <div class="event-name">Lançamento p/ Lideranças</div>
+        <div class="event-note">FCS, CAPS, Coord. PJJ, etc.</div>
+      </div>
+      <div class="event-pill pill-evento">Evento</div>
+    </div>
+
+    <div class="month-header">Abril</div>
+    <div class="event-row">
+      <div class="event-date-box">9, 16,<br>23, 30</div>
+      <div class="event-info">
+        <div class="event-name">Reunião da Comissão</div>
+      </div>
+      <div class="event-pill pill-comissao">Comissão</div>
+    </div>
+    <div class="event-row">
+      <div class="event-date-box">11</div>
+      <div class="event-info">
+        <div class="event-name">Start Acamp's 🚀</div>
+      </div>
+      <div class="event-pill pill-acamps">Acamps</div>
+    </div>
+    <div class="event-row">
+      <div class="event-date-box">1–30</div>
+      <div class="event-info">
+        <div class="event-name">Divulgação Interna</div>
+      </div>
+      <div class="event-pill pill-divulg">Divulg.</div>
+    </div>
+
+    <div class="month-header">Maio</div>
+    <div class="event-row">
+      <div class="event-date-box">7, 14,<br>21, 28</div>
+      <div class="event-info">
+        <div class="event-name">Reunião da Comissão</div>
+      </div>
+      <div class="event-pill pill-comissao">Comissão</div>
+    </div>
+    <div class="event-row">
+      <div class="event-date-box">11 e 16</div>
+      <div class="event-info">
+        <div class="event-name">Divulgação CAL</div>
+      </div>
+      <div class="event-pill pill-divulg">Divulg.</div>
+    </div>
+    <div class="event-row">
+      <div class="event-date-box">16</div>
+      <div class="event-info">
+        <div class="event-name">Evangelização Geral — Santa Rita</div>
+      </div>
+      <div class="event-pill pill-geral">Geral</div>
+    </div>
+    <div class="event-row">
+      <div class="event-date-box">18–22</div>
+      <div class="event-info">
+        <div class="event-name">Divulgação CV</div>
+      </div>
+      <div class="event-pill pill-divulg">Divulg.</div>
+    </div>
+    <div class="event-row">
+      <div class="event-date-box">21</div>
+      <div class="event-info">
+        <div class="event-name">Visita ao Local do Acamps</div>
+        <div class="event-note">Comissão</div>
+      </div>
+      <div class="event-pill pill-acamps">Acamps</div>
+    </div>
+    <div class="event-row">
+      <div class="event-date-box">26</div>
+      <div class="event-info">
+        <div class="event-name">Evangelização Geral — Alphaville</div>
+      </div>
+      <div class="event-pill pill-geral">Geral</div>
+    </div>
+    <div class="event-row">
+      <div class="event-date-box">26</div>
+      <div class="event-info">
+        <div class="event-name">Divulgação PMN</div>
+      </div>
+      <div class="event-pill pill-divulg">Divulg.</div>
+    </div>
+    <div class="event-row">
+      <div class="event-date-box">27</div>
+      <div class="event-info">
+        <div class="event-name">Evangelização Ministérios</div>
+      </div>
+      <div class="event-pill pill-geral">Geral</div>
+    </div>
+    <div class="event-row">
+      <div class="event-date-box">28</div>
+      <div class="event-info">
+        <div class="event-name">Divulgação PF + Reuniões Coord.</div>
+      </div>
+      <div class="event-pill pill-divulg">Divulg.</div>
+    </div>
+    <div class="event-row">
+      <div class="event-date-box">30</div>
+      <div class="event-info">
+        <div class="event-name">Evangelização PJJ</div>
+      </div>
+      <div class="event-pill pill-geral">Geral</div>
+    </div>
+    <div class="event-row">
+      <div class="event-date-box">1–30</div>
+      <div class="event-info">
+        <div class="event-name">Divulgação nas Escolas</div>
+      </div>
+      <div class="event-pill pill-divulg">Divulg.</div>
+    </div>
+    <div class="event-row">
+      <div class="event-date-box">16 e 17</div>
+      <div class="event-info">
+        <div class="event-name">Retiro Escuta — Lançamento</div>
+      </div>
+      <div class="event-pill pill-evento">Evento</div>
+    </div>
+    <div class="event-row">
+      <div class="event-date-box">8 e 30</div>
+      <div class="event-info">
+        <div class="event-name">Divulgação PJJ</div>
+      </div>
+      <div class="event-pill pill-divulg">Divulg.</div>
+    </div>
+
+    <div class="month-header">Junho</div>
+    <div class="event-row">
+      <div class="event-date-box">4, 11,<br>18, 25</div>
+      <div class="event-info">
+        <div class="event-name">Reunião da Comissão</div>
+      </div>
+      <div class="event-pill pill-comissao">Comissão</div>
+    </div>
+    <div class="event-row">
+      <div class="event-date-box">4</div>
+      <div class="event-info">
+        <div class="event-name">Treinamento Acamp's</div>
+      </div>
+      <div class="event-pill pill-acamps">Acamps</div>
+    </div>
+    <div class="event-row">
+      <div class="event-date-box">6</div>
+      <div class="event-info">
+        <div class="event-name">Visita ao Local do Acamps</div>
+        <div class="event-note">Coordenadores + Comissão</div>
+      </div>
+      <div class="event-pill pill-acamps">Acamps</div>
+    </div>
+    <div class="event-row">
+      <div class="event-date-box">7</div>
+      <div class="event-info">
+        <div class="event-name">Liga Acamps</div>
+      </div>
+      <div class="event-pill pill-acamps">Acamps</div>
+    </div>
+    <div class="event-row">
+      <div class="event-date-box">8–12</div>
+      <div class="event-info">
+        <div class="event-name">Divulgação CV + CAL</div>
+      </div>
+      <div class="event-pill pill-divulg">Divulg.</div>
+    </div>
+    <div class="event-row">
+      <div class="event-date-box">18</div>
+      <div class="event-info">
+        <div class="event-name">Divulgação PF e PMN</div>
+      </div>
+      <div class="event-pill pill-divulg">Divulg.</div>
+    </div>
+    <div class="event-row">
+      <div class="event-date-box">26</div>
+      <div class="event-info">
+        <div class="event-name">Reuniões Coordenadores + Visita</div>
+      </div>
+      <div class="event-pill pill-comissao">Comissão</div>
+    </div>
+    <div class="event-row">
+      <div class="event-date-box">27</div>
+      <div class="event-info">
+        <div class="event-name">Vigília de Intercessão</div>
+        <div class="event-note">Jovens na vigília dos grupos</div>
+      </div>
+      <div class="event-pill pill-evento">Evento</div>
+    </div>
+    <div class="event-row">
+      <div class="event-date-box">30</div>
+      <div class="event-info">
+        <div class="event-name">Encontro com os Pais</div>
+      </div>
+      <div class="event-pill pill-evento">Evento</div>
+    </div>
+
+    <div class="month-header">Julho</div>
+    
+    <div class="highlight-july">
+      <div class="hj-icon">🏕️</div>
+      <div class="hj-text">
+        <strong>02 – 05 de julho</strong>
+        <span>O grande momento! Todos os caminhos levam ao Acampamento.</span>
+      </div>
+    </div>
+
+    <div class="event-row">
+      <div class="event-date-box">7</div>
+      <div class="event-info">
+        <div class="event-name">Convivência dos Servos</div>
+      </div>
+      <div class="event-pill pill-geral">Geral</div>
+    </div>
+    <div class="event-row">
+      <div class="event-date-box">11</div>
+      <div class="event-info">
+        <div class="event-name">Reencontro</div>
+      </div>
+      <div class="event-pill pill-evento">Evento</div>
+    </div>
+  </div>
+
+  <div class="tab-panel" id="panel-evang">
+    
+    <div class="evang-header">
+      <span class="evang-title">Geral</span>
+    </div>
+    <div class="evang-list">
+      <div class="evang-item">
+        <div class="evang-region">16 de maio</div>
+        <div class="evang-local">Santa Rita</div>
+      </div>
+      <div class="evang-item">
+        <div class="evang-region">26 de maio</div>
+        <div class="evang-local">Alphaville</div>
+      </div>
+    </div>
+
+    <div class="evang-header">
+      <span class="evang-title">Ministérios</span>
+      <span class="evang-badge">27 de maio</span>
+    </div>
+    <div class="evang-list">
+      <div class="evang-item">
+        <div class="evang-region">Petrópolis</div>
+        <div class="evang-local">Praia de Miami</div>
+      </div>
+      <div class="evang-item">
+        <div class="evang-region">Planalto</div>
+        <div class="evang-local">Praça da Feira</div>
+      </div>
+      <div class="evang-item">
+        <div class="evang-region">Nova Parnamirim</div>
+        <div class="evang-local">Praça Cidade Verde</div>
+      </div>
+      <div class="evang-item">
+        <div class="evang-region">São José</div>
+        <div class="evang-local">Praça do Futuro e do Cemitério</div>
+      </div>
+      <div class="evang-item">
+        <div class="evang-region">Santa Cruz</div>
+        <div class="evang-local">Praça Gastronômica</div>
+      </div>
+      <div class="evang-item">
+        <div class="evang-region">Cidade da Esperança</div>
+        <div class="evang-local">Roda do Padre</div>
+      </div>
+      <div class="evang-item">
+        <div class="evang-region">Vera Cruz</div>
+        <div class="evang-local">Praça do Estadual</div>
+      </div>
+      <div class="evang-item">
+        <div class="evang-region">Touros</div>
+        <div class="evang-local">Deck</div>
+        <div class="evang-obs">Hannah confirma endereço</div>
+      </div>
+    </div>
+
+    <div class="evang-header">
+      <span class="evang-title">PJJ</span>
+      <span class="evang-badge">30 de maio</span>
+    </div>
+    <div class="evang-list">
+      <div class="evang-item">
+        <div class="evang-region">Petrópolis</div>
+        <div class="evang-local">Praia de Miami</div>
+      </div>
+      <div class="evang-item">
+        <div class="evang-region">Planalto</div>
+        <div class="evang-local">Praça da Feira</div>
+      </div>
+      <div class="evang-item">
+        <div class="evang-region">Nova Parnamirim</div>
+        <div class="evang-local">Praça de Ponta Negra</div>
+      </div>
+      <div class="evang-item">
+        <div class="evang-region">São José</div>
+        <div class="evang-local">Praça do Futuro e do Cemitério</div>
+      </div>
+      <div class="evang-item">
+        <div class="evang-region">Santa Cruz</div>
+        <div class="evang-local">Praça Gastronômica</div>
+      </div>
+      <div class="evang-item">
+        <div class="evang-region">Cidade da Esperança</div>
+        <div class="evang-local">Crisma dos Mártires</div>
+      </div>
+      <div class="evang-item">
+        <div class="evang-region">Vera Cruz</div>
+        <div class="evang-local">Praça do Estadual</div>
+      </div>
+      <div class="evang-item">
+        <div class="evang-region">Touros</div>
+        <div class="evang-local">Deck</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
 <div class="footer">
   <div class="footer-logo">ACAMPS · SHALOM</div>
   Acampamento de Jovens Shalom · 2026.2<br>
@@ -387,6 +798,21 @@ html, body { font-family: "Nunito", sans-serif; background: var(--cream); color:
 </div>
 
 <a href="https://wa.me/5584996967809" target="_blank" class="wa-float">💬</a>
+
+<script>
+  function switchTab(tabName) {
+    // Remove classe active dos botões
+    document.getElementById('tab-geral').classList.remove('active');
+    document.getElementById('tab-evang').classList.remove('active');
+    // Remove classe active dos painéis
+    document.getElementById('panel-geral').classList.remove('active');
+    document.getElementById('panel-evang').classList.remove('active');
+    
+    // Adiciona classe active na aba clicada
+    document.getElementById('tab-' + tabName).classList.add('active');
+    document.getElementById('panel-' + tabName).classList.add('active');
+  }
+</script>
 
 </body>
 </html>

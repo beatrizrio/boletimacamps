@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Boletim ACAMPS 2026.2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --orange: #D4601A; --orange-dark: #A3420D; --orange-light: #F5832A;
+  --cream: #FFF8F0; --white: #FFFFFF; --text: #2D1A0A; --muted: #7A5A40;
+  --gold: #F5B733; --gold-light: #FDEAB8;
+  --green: #2D7A3A; --green-light: #E6F5EA;
+  --teal: #1A8A7A; --teal-light: #E0F5F2;
+}
+html, body { font-family: "Nunito", sans-serif; background: var(--cream); color: var(--text); }
+
+/* HEADER */
+.header { background: var(--orange-dark); position: relative; overflow: hidden; }
+.header-bg { position: absolute; inset: 0; background: repeating-linear-gradient(-45deg, transparent, transparent 12px, rgba(255,255,255,0.04) 12px, rgba(255,255,255,0.04) 24px); }
+.header-top { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px 0; position: relative; z-index: 1; }
+.logo-badge { background: var(--white); border-radius: 50%; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; font-family: "Bebas Neue", sans-serif; font-size: 11px; color: var(--orange-dark); line-height: 1.1; text-align: center; border: 2px solid var(--gold); }
+.edition-tag { background: var(--gold); color: var(--orange-dark); font-size: 11px; font-weight: 800; padding: 4px 12px; border-radius: 20px; }
+.header-title { text-align: center; padding: 12px 20px 0; position: relative; z-index: 1; }
+.boletim-label { font-family: "Bebas Neue", sans-serif; font-size: 13px; color: rgba(255,255,255,0.6); letter-spacing: 4px; margin-bottom: 2px; }
+.acamps-title { font-family: "Bebas Neue", sans-serif; font-size: 64px; color: var(--gold); line-height: 0.9; letter-spacing: 2px; }
+.subtitle-tag { display: inline-block; background: var(--orange-light); color: var(--white); font-size: 10px; font-weight: 800; padding: 3px 10px; border-radius: 4px; letter-spacing: 2px; margin-top: 4px; }
+.header-wave { width: 100%; height: 32px; position: relative; z-index: 1; margin-top: 12px; }
+
+/* SECTION BLOCKS */
+.section-block { padding: 0 16px; margin-bottom: 8px; }
+.section-label { display: flex; align-items: center; gap: 10px; margin: 28px 0 14px; }
+.section-label-line { flex: 1; height: 1.5px; background: rgba(212,96,26,0.15); }
+.section-label-text { font-family: "Bebas Neue", sans-serif; font-size: 25px; letter-spacing: 3px; color: var(--muted); white-space: nowrap; }
+
+/* HERO */
+.hero-banner { background: var(--orange); border-radius: 20px; padding: 20px; display: flex; align-items: center; justify-content: space-between; position: relative; overflow: hidden; margin: 0 16px 8px; }
+.hero-banner::before { content: ""; position: absolute; right: -10px; top: -20px; width: 120px; height: 120px; border-radius: 50%; background: rgba(255,255,255,0.1); }
+.hero-text .hey { font-size: 13px; color: rgba(255,255,255,0.8); font-weight: 600; }
+.hero-text .main { font-family: "Bebas Neue", sans-serif; font-size: 28px; color: var(--white); line-height: 1; letter-spacing: 1px; }
+.hero-text .sub { font-size: 12px; color: rgba(255,255,255,0.75); font-weight: 600; margin-top: 4px; }
+.hero-emoji { font-size: 48px; position: relative; z-index: 1; }
+
+/* ANIVERSARIO */
+.aniversario-banner { background: var(--orange-dark); border-radius: 20px; padding: 20px; text-align: center; margin-bottom: 12px; position: relative; overflow: hidden; }
+.aniversario-banner::before { content: ""; position: absolute; top: -30px; right: -30px; width: 120px; height: 120px; border-radius: 50%; background: rgba(245,183,51,0.15); }
+.aniversario-num { font-family: "Bebas Neue", sans-serif; font-size: 72px; color: var(--gold); line-height: 0.9; }
+.aniversario-text { font-family: "Bebas Neue", sans-serif; font-size: 20px; color: var(--white); letter-spacing: 3px; margin-top: 4px; }
+.aniversario-sub { font-size: 13px; color: rgba(255,255,255,0.7); margin-top: 8px; font-weight: 600; }
+
+/* CARDS */
+.card { background: var(--white); border-radius: 20px; padding: 20px; margin-bottom: 12px; border: 1.5px solid rgba(212,96,26,0.08); }
+.card-accent { border-left: 4px solid var(--orange); border-radius: 0 16px 16px 0; border-top: 1.5px solid rgba(212,96,26,0.08); border-right: 1.5px solid rgba(212,96,26,0.08); border-bottom: 1.5px solid rgba(212,96,26,0.08); }
+.card-teal { border-left: 4px solid var(--teal); border-radius: 0 16px 16px 0; border-top: 1.5px solid rgba(26,138,122,0.1); border-right: 1.5px solid rgba(26,138,122,0.1); border-bottom: 1.5px solid rgba(26,138,122,0.1); }
+.card-title { font-family: "Bebas Neue", sans-serif; font-size: 22px; color: var(--orange-dark); letter-spacing: 1px; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+.card-body { font-size: 15px; line-height: 1.65; color: var(--text); }
+.card-body p { margin-bottom: 8px; }
+.card-body p:last-child { margin-bottom: 0; }
+
+/* STATS */
+.stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
+.stat-card { border-radius: 14px; padding: 14px 10px; border: 1.5px solid rgba(212,96,26,0.1); text-align: center; background: var(--white); }
+.stat-number { font-family: "Bebas Neue", sans-serif; font-size: 44px; color: var(--orange); line-height: 1; }
+.stat-label { font-size: 11px; font-weight: 700; color: var(--muted); letter-spacing: 0.5px; text-transform: uppercase; margin-top: 2px; }
+.stat-sub { font-size: 10px; color: var(--muted); margin-top: 2px; font-weight: 600; }
+.stat-card.s-orange { background: var(--orange); border-color: var(--orange); }
+.stat-card.s-orange .stat-number { color: var(--white); }
+.stat-card.s-orange .stat-label, .stat-card.s-orange .stat-sub { color: rgba(255,255,255,0.8); }
+.stat-card.s-teal { background: var(--teal); border-color: var(--teal); }
+.stat-card.s-teal .stat-number { color: var(--white); }
+.stat-card.s-teal .stat-label, .stat-card.s-teal .stat-sub { color: rgba(255,255,255,0.8); }
+.stat-card.s-gold { background: var(--gold); border-color: var(--gold); }
+.stat-card.s-gold .stat-number { color: var(--orange-dark); }
+.stat-card.s-gold .stat-label, .stat-card.s-gold .stat-sub { color: var(--orange-dark); opacity: 0.8; }
+
+/* PROGRESS */
+.progress-wrap { margin-bottom: 10px; }
+.progress-label { display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; color: var(--muted); margin-bottom: 5px; }
+.progress-bar { height: 9px; background: rgba(212,96,26,0.1); border-radius: 10px; overflow: hidden; }
+.progress-fill { height: 100%; border-radius: 10px; }
+.pf-orange { background: var(--orange); }
+.pf-teal { background: var(--teal); }
+.pf-gold { background: var(--gold); }
+
+/* INFO ROW */
+.info-row { display: flex; align-items: flex-start; gap: 10px; padding: 9px 0; border-bottom: 1px solid rgba(212,96,26,0.07); font-size: 14px; }
+.info-row:last-child { border-bottom: none; }
+.info-label { font-weight: 700; color: var(--muted); min-width: 68px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; padding-top: 1px; }
+.info-val { color: var(--text); font-weight: 600; flex: 1; }
+
+/* LOTE */
+.lote-card { background: var(--white); border-radius: 18px; padding: 16px 18px; margin-bottom: 10px; border: 1.5px solid rgba(212,96,26,0.1); display: flex; align-items: center; gap: 14px; }
+.lote-badge { color: var(--white); font-family: "Bebas Neue", sans-serif; font-size: 13px; letter-spacing: 1px; padding: 6px 12px; border-radius: 10px; text-align: center; flex-shrink: 0; line-height: 1.2; }
+.lote-badge.lb-gold { background: var(--gold); color: var(--orange-dark); }
+.lote-badge.lb-teal { background: var(--teal); }
+.lote-tipo { font-size: 12px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
+.lote-preco { font-family: "Bebas Neue", sans-serif; font-size: 30px; color: var(--orange-dark); line-height: 1; }
+
+/* LIST */
+.item-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.item-list li { display: flex; align-items: flex-start; gap: 12px; font-size: 14px; color: var(--text); line-height: 1.4; }
+.item-icon { flex-shrink: 0; width: 32px; height: 32px; border-radius: 10px; background: var(--gold-light); display: flex; align-items: center; justify-content: center; font-size: 15px; }
+.item-text strong { display: block; font-weight: 800; font-size: 13px; color: var(--orange-dark); }
+
+/* PRIZE */
+.prize-banner { background: var(--gold); border-radius: 16px; padding: 14px 16px; display: flex; align-items: center; gap: 12px; margin-top: 4px; }
+.prize-text { font-weight: 800; font-size: 14px; color: var(--orange-dark); }
+.prize-sub { font-size: 12px; color: rgba(163,66,13,0.7); margin-top: 2px; }
+
+/* PRAYER */
+.prayer-card { background: var(--orange-dark); border-radius: 20px; padding: 24px 20px; color: var(--white); text-align: center; margin-bottom: 12px; position: relative; overflow: hidden; }
+.prayer-card::before { content: ""; position: absolute; top: -30px; right: -30px; width: 120px; height: 120px; border-radius: 50%; background: rgba(255,255,255,0.06); }
+.prayer-icon { font-size: 38px; margin-bottom: 10px; position: relative; z-index: 1; }
+.prayer-title { font-family: "Bebas Neue", sans-serif; font-size: 24px; letter-spacing: 2px; color: var(--gold); margin-bottom: 10px; position: relative; z-index: 1; }
+.prayer-text { font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.9); position: relative; z-index: 1; }
+.prayer-highlight { font-weight: 800; color: var(--gold); }
+
+/* ARTE */
+.arte-img { width: 100%; border-radius: 20px; display: block; margin-bottom: 12px; }
+
+/* DATE */
+.date-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--green-light); color: var(--green); font-size: 13px; font-weight: 800; padding: 8px 14px; border-radius: 12px; margin-top: 4px; }
+
+/* MODALIDADE */
+.mod-card { background: var(--white); border-radius: 14px; padding: 14px; margin-bottom: 10px; border: 1.5px solid rgba(26,138,122,0.12); display: flex; align-items: center; gap: 12px; }
+.mod-icon { font-size: 26px; flex-shrink: 0; }
+.mod-name { font-family: "Bebas Neue", sans-serif; font-size: 19px; color: var(--teal); letter-spacing: 1px; }
+.mod-price { font-size: 12px; font-weight: 800; color: var(--green); background: var(--green-light); padding: 2px 8px; border-radius: 7px; display: inline-block; margin-top: 2px; }
+
+/* BUTTONS */
+.btn { display: block; width: 100%; padding: 15px; border-radius: 14px; border: none; font-family: "Nunito", sans-serif; font-size: 15px; font-weight: 800; cursor: pointer; text-decoration: none; text-align: center; margin-bottom: 10px; }
+.btn-orange { background: var(--orange); color: var(--white); }
+.btn-dark { background: var(--orange-dark); color: var(--white); }
+.btn-teal { background: var(--teal); color: var(--white); }
+.btn-outline { background: transparent; color: var(--orange); border: 2px solid var(--orange); }
+.btn-green { background: var(--green); color: var(--white); }
+
+/* FOOTER */
+.footer { text-align: center; padding: 24px 20px 56px; font-size: 12px; color: var(--muted); font-weight: 600; }
+.footer-logo { font-family: "Bebas Neue", sans-serif; font-size: 18px; color: var(--orange); letter-spacing: 2px; margin-bottom: 4px; }
+
+/* WHATSAPP */
+.wa-float { position: fixed; bottom: 24px; right: 20px; background: #25D366; color: white; border-radius: 50%; width: 54px; height: 54px; display: flex; align-items: center; justify-content: center; font-size: 28px; text-decoration: none; box-shadow: 0 4px 20px rgba(37,211,102,0.45); z-index: 999; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-bg"></div>
+  <div class="header-top">
+    <div class="edition-tag">EDIÇÃO 2026.2</div>
+  </div>
+  <div class="header-title">
+    <div class="boletim-label">Boletim</div>
+    <div class="acamps-title">ACAMPS</div>
+    <div class="subtitle-tag">IMPOSSÍVEL DESCREVER</div>
+  </div>
+  <svg class="header-wave" viewBox="0 0 390 32" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 32 L0 18 Q97.5 0 195 14 Q292.5 28 390 10 L390 32 Z" fill="#FFF8F0"/>
+  </svg>
+</div>
+
+<!-- HERO -->
+<div class="hero-banner">
+  <div class="hero-text">
+    <div class="hey">Acampamento de Jovens</div>
+    <div class="main">25 ANOS ⛺</div>
+    <div class="sub">2 a 5 de julho · Rio das Garças</div>
+  </div>
+  <div class="hero-emoji">🔥</div>
+</div>
+
+<!-- ======= DADOS ======= -->
+<div class="section-block">
+  <div class="section-label">
+    <div class="section-label-line"></div>
+    <div class="section-label-text">📊 DADOS DO ACAMPS</div>
+    <div class="section-label-line"></div>
+  </div>
+
+  <div class="aniversario-banner">
+    <div class="aniversario-num">25</div>
+    <div class="aniversario-text">ANOS DE ACAMPS</div>
+    <div class="aniversario-sub">2 a 5 de julho · Rio das Garças</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🎟️ Inscrições</div>
+    <div class="stats-grid">
+      <div class="stat-card s-orange">
+        <div class="stat-number">8</div>
+        <div class="stat-label">Participantes</div>
+        <div class="stat-sub">inscritos</div>
+      </div>
+      <div class="stat-card s-teal">
+        <div class="stat-number">8</div>
+        <div class="stat-label">Servos</div>
+        <div class="stat-sub">inscritos</div>
+      </div>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-label"><span>Participantes</span><span>8 inscritos</span></div>
+      <div class="progress-bar"><div class="progress-fill pf-orange" style="width:16%"></div></div>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-label"><span>Servos</span><span>8 inscritos</span></div>
+      <div class="progress-bar"><div class="progress-fill pf-teal" style="width:16%"></div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">📣 Engajamentos</div>
+    <div class="stats-grid">
+      <div class="stat-card s-gold">
+        <div class="stat-number">100</div>
+        <div class="stat-label">Obra</div>
+        <div class="stat-sub">engajamentos</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">8</div>
+        <div class="stat-label">CAL</div>
+        <div class="stat-sub">engajamentos</div>
+      </div>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-label"><span>Obra</span><span>100 engajados</span></div>
+      <div class="progress-bar"><div class="progress-fill pf-gold" style="width:80%"></div></div>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-label"><span>CAL</span><span>8 engajados</span></div>
+      <div class="progress-bar"><div class="progress-fill pf-orange" style="width:12%"></div></div>
+    </div>
+  </div>
+
+  <a href="https://forms.gle/onMrnCLtMdaUyJHf8" target="_blank" class="btn btn-teal">🤝 Fazer Engajamento ACAMPS</a>
+  <a href="https://www.instagram.com/reel/DYP94YPoBgc/?igsh=Z3BhZXl4aWVjOHk0" target="_blank" class="btn btn-outline">📽️ Compartilhar vídeo no Story</a>
+</div>
+
+<!-- ======= INSCRIÇÕES ======= -->
+<div class="section-block">
+  <div class="section-label">
+    <div class="section-label-line"></div>
+    <div class="section-label-text">🎟️ INSCRIÇÕES</div>
+    <div class="section-label-line"></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">📍 Informações gerais</div>
+    <div class="info-row"><span class="info-label">Data</span><span class="info-val">🗓️ 2 a 5 de julho de 2026</span></div>
+    <div class="info-row"><span class="info-label">Local</span><span class="info-val">📍 Rio das Garças</span></div>
+    <div class="info-row"><span class="info-label">Edição</span><span class="info-val">⛺ ACAMPS 25 Anos</span></div>
+  </div>
+
+  <div class="lote-card">
+    <div class="lote-badge lb-gold">1º<br>LOTE</div>
+    <div><div class="lote-tipo">🙋 Participante</div><div class="lote-preco">R$ 340</div></div>
+  </div>
+  <a href="https://www.e-inscricao.com/eventosnatal/acamps2026-2" target="_blank" class="btn btn-orange">🎟️ Inscrever como Participante</a>
+
+  <div class="lote-card">
+    <div class="lote-badge lb-teal">1º<br>LOTE</div>
+    <div><div class="lote-tipo">🔥 Servo</div><div class="lote-preco">R$ 260</div></div>
+  </div>
+  <a href="https://www.e-inscricao.com/eventosnatal/acamps2026-2servos" target="_blank" class="btn btn-dark">🔥 Inscrever como Servo</a>
+
+  <div class="card card-accent" style="margin-top:4px;">
+    <div class="card-title">💬 Mais informações</div>
+    <div class="card-body">
+      <p>Dúvidas? Fale com a gente pelo WhatsApp:</p>
+      <a href="https://wa.me/5584996967809" target="_blank" class="btn btn-green" style="margin-top:10px;">📞 84 99696-7809</a>
+    </div>
+  </div>
+</div>
+
+<!-- ======= INTERCESSÃO ======= -->
+<div class="section-block">
+  <div class="section-label">
+    <div class="section-label-line"></div>
+    <div class="section-label-text">🙏 INTERCESSÃO</div>
+    <div class="section-label-line"></div>
+  </div>
+  <div class="prayer-card">
+    <div class="prayer-icon">🙏</div>
+    <div class="prayer-title">Ofício de Nossa Senhora</div>
+    <div class="prayer-text">
+      Como Comunidade, vamos assumir a oração do <span class="prayer-highlight">Ofício de Nossa Senhora</span> em intercessão pelo ACAMPS.<br><br>
+      Pedimos que, <span class="prayer-highlight">semanalmente</span>, ao final das células, grupos de oração e momentos comunitários, seja rezado o Ofício.
+    </div>
+  </div>
+
+  <div class="card card-accent">
+    <div class="card-title">📅 Como participar</div>
+    <ul class="item-list">
+      <li><div class="item-icon">🕯️</div><div class="item-text"><strong>Células</strong>Rezar o Ofício ao final de cada célula</div></li>
+      <li><div class="item-icon">🤝</div><div class="item-text"><strong>Grupos de oração</strong>Incluir o Ofício nos momentos de oração</div></li>
+      <li><div class="item-icon">🌿</div><div class="item-text"><strong>Momentos comunitários</strong>Encerrar com a oração pelo ACAMPS</div></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Nossa Senhora da Apresentação</div>
+    <div class="card-body">
+      <p>O ACAMPS está em vossas mãos! Que Maria interceda por cada jovem e que o Espírito Santo faça obra em cada coração.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ======= GINCANA ======= -->
+<div class="section-block">
+  <div class="section-label">
+    <div class="section-label-line"></div>
+    <div class="section-label-text">🏆 GINCANA CAL</div>
+    <div class="section-label-line"></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">⛺ Como funciona</div>
+    <div class="card-body">
+      <p>Cada <strong style="color:var(--orange-dark)">célula será uma equipe</strong> e poderá pontuar de várias formas durante o período da gincana!</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🎯 Formas de pontuar</div>
+    <ul class="item-list">
+      <li><div class="item-icon">🤝</div><div class="item-text"><strong>Arrecadação de alimentos</strong>Contribua com doações de alimentos</div></li>
+      <li><div class="item-icon">🔥</div><div class="item-text"><strong>Serviços no ACAMPS</strong>Sirva durante o acampamento</div></li>
+      <li><div class="item-icon">🙏</div><div class="item-text"><strong>Apadrinhamento de jovens</strong>Apadrinhe um jovem para o ACAMPS</div></li>
+      <li><div class="item-icon">✍️</div><div class="item-text"><strong>Inscrições de participantes</strong>Traga jovens para se inscrever</div></li>
+    </ul>
+  </div>
+
+  <div class="date-badge">📅 16 de maio a 01 de julho de 2026</div>
+  <div style="height:12px;"></div>
+
+  <div class="prize-banner">
+    <div style="font-size: 50px;flex-shrink:0;">🏆</div>
+    <div><div class="prize-text">Premiação · Reciclagem Shalom</div><div class="prize-sub">Procure o edital no grupo da unidade</div></div>
+  </div>
+</div>
+
+<!-- ======= LIGA ======= -->
+<div class="section-block">
+  <div class="section-label">
+    <div class="section-label-line"></div>
+    <div class="section-label-text">⚽ LIGA ACAMPS</div>
+    <div class="section-label-line"></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">📍 Informações gerais</div>
+    <div class="info-row"><span class="info-label">Data</span><span class="info-val">🗓️ 07 de junho (domingo)</span></div>
+    <div class="info-row"><span class="info-label">Início</span><span class="info-val">⏰ 8h — Santa Missa</span></div>
+    <div class="info-row"><span class="info-label">Local</span><span class="info-val">📍 Aeroclube · Av. Hermes da Fonseca, 1296 · Tirol</span></div>
+    <div class="info-row"><span class="info-label">Entrada</span><span class="info-val">🍚 1kg de alimento</span></div>
+    <div class="info-row"><span class="info-label">Extra</span><span class="info-val">🍔 Lanchonete no local!</span></div>
+  </div>
+
+  <div class="mod-card"><div class="mod-icon">🏐</div><div><div class="mod-name">Vôlei de Areia</div><div class="mod-price">Inscrição: R$ 100,00</div></div></div>
+  <div class="mod-card"><div class="mod-icon">🦶</div><div><div class="mod-name">Futevôlei</div><div class="mod-price">Inscrição: R$ 100,00</div></div></div>
+  <div class="mod-card"><div class="mod-icon">⚽</div><div><div class="mod-name">Futebol / Society</div><div class="mod-price">Inscrição: R$ 250,00</div></div></div>
+
+  <div style="height:8px;"></div>
+  <div class="prize-banner">
+    <div style="font-size:30px;flex-shrink:0;">🏆</div>
+    <div><div class="prize-text">Premiação em dinheiro e medalhas</div><div class="prize-sub">Monte seu time e vem pra quadra!</div></div>
+  </div>
+
+  <div style="height:12px;"></div>
+  <div class="card card-teal">
+    <div class="card-title" style="color:var(--teal);">📲 Inscrições abertas!</div>
+    <div class="card-body">
+      <p>Entre em contato para inscrever seu time:</p>
+      <a href="https://wa.me/5584996967809" target="_blank" class="btn btn-green" style="margin-top:10px;">📞 84 99696-7809</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-logo">ACAMPS · SHALOM</div>
+  Acampamento de Jovens Shalom · 2026.2<br>
+  Nossa Senhora da Apresentação, intercedei por nós! 🤍
+</div>
+
+<a href="https://wa.me/5584996967809" target="_blank" class="wa-float">💬</a>
+
+</body>
+</html>
